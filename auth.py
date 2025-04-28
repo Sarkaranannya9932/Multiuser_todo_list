@@ -27,3 +27,4 @@ def register(username, password):
 
     cursor.close()
     conn.close()
+    return True
