@@ -1,26 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for
-from auth import login,register
+from auth import login, register
 
 app = Flask(__name__, template_folder="templates")
 todos = [{"task": "sample todo", "done": False}]
-
 
 
 @app.route("/")  #
 def index():
     return render_template("index.html", todos=todos)
 
-@app.route("/login",methods=["GET","POST"])
+
+@app.route("/login", methods=["GET", "POST"])
 def login_page():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
 
-        if login(username,password):
+        if login(username, password):
             return redirect(url_for("index"))
         else:
-            return "Login failed.Invalid username or password.",401
+            return "Login failed.Invalid username or password.", 401
     return render_template("login.html")
+
 
 # Register route
 @app.route("/register", methods=["GET", "POST"])
@@ -58,7 +59,7 @@ def edit(index):
         return render_template("edit.html", todo=todo, index=index)
 
 
-@app.route("/check/<int:index>",methods=['POST'])
+@app.route("/check/<int:index>", methods=['POST'])
 def check(index):
     todo = todos[index]
     todos[index]['done'] = not todos[index]['done']
@@ -70,7 +71,6 @@ def delete(index):
     del todos[index]
     # todos[index]['done'] = not todos[index]['done']
     return redirect(url_for("index"))
-
 
 
 if __name__ == '__main__':
