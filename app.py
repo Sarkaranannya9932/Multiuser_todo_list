@@ -30,10 +30,9 @@ def register_page():
         username = request.form["username"]
         password = request.form["password"]
 
-        # Check if the user already exists (optional)
-        # You could add a function in auth.py to check if the user already exists.
-        if register(username, password):  # Call the register function from auth.py
-            return redirect(url_for("login"))  # Redirect to login page after successful registration
+        
+        if register(username, password): 
+            return "Registration successful! Please log in." 
         else:
             return "Registration failed. User might already exist.", 400  # Handle failed registration
 
