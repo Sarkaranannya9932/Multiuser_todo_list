@@ -1,0 +1,19 @@
+# Python bytecode files
+*.pyc
+__pycache__/
+
+# Virtual environments
+venv/
+env/
+
+# PyCharm project files
+.idea/
+
+# Logs
+*.log
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Mac OS-specific files
+.DS_Store
