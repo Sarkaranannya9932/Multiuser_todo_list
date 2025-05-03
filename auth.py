@@ -19,12 +19,17 @@ def login(username, password):
 
 
 def register(username, password):
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    cursor.execute("INSERT INTO Users (username, password) VALUES (%s, %s)", (username, password))
-    conn.commit()
-
-    cursor.close()
-    conn.close()
+        cursor.execute("INSERT INTO Users (username, password) VALUES (%s, %s)", (username, password))
+        conn.commit()
+    except Exception as e:
+        print("Error during registration:", e)
+        return False
+    finally:
+        cursor.close()
+        conn.close()
+    return True
     return True

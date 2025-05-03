@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <div class="container">
+        <h2>
+            {% if current_user %}
+                {{ current_user }}'s ToDo
+            {% else %}
+                TodoApp
+            {% endif %}
+        </h2>
+        <div>
+            {% if current_user %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('login_page') }}">Login</a>
+                <a href="{{ url_for('register_page') }}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

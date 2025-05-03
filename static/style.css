@@ -1,80 +1,79 @@
-/* Global styles */
-<style>
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 30px;
+    color: #f0f0f0;
 }
 
-/* Centering content */
+/* Glass Container */
 .container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(30, 30, 30, 0.6); /* Darkened for contrast */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Header styling */
-h1 {
+/* Headings */
+h1, h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #4CAF50;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* General form styling */
+/* Form */
 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 20px;
 }
 
-input[type="text"], input[type="password"]{
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-}
-input[type="checkbox1"]{
-
-}
-button {
-    padding: 10px;
-    background-color: #4CAF50;
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
     border: none;
-    border-radius: 5px;
-    color: white;
+    border-radius: 8px;
     font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    outline: none;
+}
+
+input::placeholder {
+    color: #cccccc;
+}
+
+button {
+    padding: 12px;
+    background: rgba(0, 200, 255, 0.5);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
-}
-
-/* Links */
-a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-size: 16px;
-    text-align: center;
-}
-checkbox1{
-
-}
-a:hover {
-    text-decoration: underline;
+    background: rgba(0, 200, 255, 0.8);
 }
 
 /* Todo List */
@@ -84,21 +83,102 @@ ul {
 }
 
 li {
-    background-color: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+li span {
+    flex-grow: 1;
+    margin-left: 10px;
+    color: #e0f7fa;
+}
+
+li span.done {
+    text-decoration: line-through;
+    color: #9ec4c6;
+}
+
+li a {
+    color: #00e5ff;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(20, 20, 20, 0.6);
+    padding: 15px 0;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.navbar h2 {
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.navbar a {
+    color: #4dd0e1;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+/* Footer */
+.footer {
+    background: rgba(20, 20, 20, 0.5);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    color: #bbbbbb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     li {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    a {
-        text-decoration: none;
-        color: blue;
+
+    li a {
+        margin-top: 5px;
     }
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+}
